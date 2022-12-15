@@ -38,9 +38,27 @@ public class StudentService {
 		Iterator<Student> iterador = lista.iterator();
 		boolean encontrado=false;
 		Student u=null;
-		while(iterador.hasNext()) {
+		while(iterador.hasNext() && !encontrado) {
 			u= iterador.next();
 			if(u.getName().equals(nombre) && u.getSurname().equals(apellido)) {
+				encontrado=true;
+			}
+			
+		}
+		if(encontrado==true) {
+			return u;
+		}else {
+			return null;
+		}
+		
+	}
+	public Student get(String nombre) {
+		Iterator<Student> iterador = lista.iterator();
+		boolean encontrado=false;
+		Student u=null;
+		while(iterador.hasNext()) {
+			u= iterador.next();
+			if(u.getName().equals(nombre)) {
 				encontrado=true;
 			}
 			

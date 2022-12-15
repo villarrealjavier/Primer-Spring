@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jacaranda.prueba.Service.StudentService;
 import com.jacaranda.prueba.model.Student;
@@ -29,8 +30,10 @@ public class StudentController {
 		return "addStudent";
 	}
 	@GetMapping("deleteStudent")
-	public String deleteStudent(Model model, @ModelAttribute("student")Student student) {
-		model.addAttribute("estudiante", student);
+	public String deleteStudent(Model model, @RequestParam(name="name")String name,
+			@RequestParam(name="surname")String surname) {
+		Student student = repositorio.get(name, surname);
+		model.addAttribute("student", student);
 		return "deleteStudent";
 	}
 	@PostMapping("deleteStudent/submit")

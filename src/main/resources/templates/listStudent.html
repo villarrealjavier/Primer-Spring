@@ -30,8 +30,9 @@
     					<td th:text="${student.name}"></td>
     					<td th:text="${student.surname}"></td>
     					<td th:text="${student.age}"></td>
-    					<td><form action="deleteStudent" th:action="@{deleteStudent}" th:object="${student}" method="GET">
-    					<button>Borrar</form> 
+    					<td><a th:href="@{'deleteStudent'(name=${student.name},surname=${student.surname})}">
+    						<button>Borrar</button>
+    					</a></td>
     				</tr>
     			</tbody>
     		
