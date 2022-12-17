@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form class="form-horizontal" th:action="@{updateStudent/submit}"
+	th:object="${student}" method="POST">
+	<fieldset>
+	
+	<!-- Form Name -->
+	<legend>Form Name</legend>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="name">Name</label>  
+	  <div class="col-md-4">
+	  <input id="name" name="name" type="text" th:field="*{name}" th:value="${student.name}" class="form-control input-md" readonly required="">
+	  <span class="help-block">The first name</span>  
+	  </div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="surname">Surname</label>  
+	  <div class="col-md-4">
+	  <input id="surname" name="surname" type="text" th:field="*{surname}" th:value="${student.surname}"class="form-control input-md" readonly required="">
+	  <span class="help-block">The second name</span>  
+	  </div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="age">Age</label>  
+	  <div class="col-md-4">
+	  <input id="age" name="age" th:field="*{age}" th:value="${student.age}"type="number"  class="form-control input-md" required="">
+	  <span class="help-block">The age of person</span>  
+	  </div>
+<!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="addStudent"></label>
+                    <div class="col-md-4">
+                        <button id="addStudent" name="addStudent" class="btn btn-primary">Update Student
+                        </button>
+                    </div>
+                </div>
+
+</fieldset>
+</form>
+
+</body>
+</html>
+
+</body>
+</html>

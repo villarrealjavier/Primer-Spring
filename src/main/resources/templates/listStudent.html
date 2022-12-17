@@ -22,6 +22,8 @@
     					<th>NOMBRE</th>
     					<th>APELLIDO</th>
     					<th>EDAD</th>
+    					<th>Borrar</th>
+    					<th>Actualizar</th>
     				</tr>
     			</thead>
     			
@@ -32,6 +34,9 @@
     					<td th:text="${student.age}"></td>
     					<td><a th:href="@{'deleteStudent'(name=${student.name},surname=${student.surname})}">
     						<button>Borrar</button>
+    					</a></td>
+    					<td><a th:href="@{'updateStudent'(name=${student.name},surname=${student.surname})}">
+    						<button>Actualizar</button>
     					</a></td>
     				</tr>
     			</tbody>

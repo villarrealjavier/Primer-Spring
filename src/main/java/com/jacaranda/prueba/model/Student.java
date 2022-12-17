@@ -54,4 +54,6 @@ public class Student {
 		return Objects.equals(age, other.age) && Objects.equals(name, other.name)
 				&& Objects.equals(surname, other.surname);
 	}
+	
+	
 }

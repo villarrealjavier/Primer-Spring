@@ -36,6 +36,21 @@ public class StudentController {
 		model.addAttribute("student", student);
 		return "deleteStudent";
 	}
+	@GetMapping("updateStudent")
+	public String updateStudent(Model model, @RequestParam(name="name")String name,
+			@RequestParam(name="surname")String surname) {
+		Student student = repositorio.get(name, surname);
+		model.addAttribute("student", student);
+		return "updateStudent";
+	}
+	@PostMapping("updateStudent/submit")
+	public String updateresult(@ModelAttribute("estudiante")Student u) {
+		repositorio.updateStudent(u.getName(), u.getSurname(), u.getAge());
+		
+		
+		return "redirect:/listStudent";
+		
+	}
 	@PostMapping("deleteStudent/submit")
 	public String deleteresult(@ModelAttribute("estudiante")Student u) {
 		repositorio.remove(u);
