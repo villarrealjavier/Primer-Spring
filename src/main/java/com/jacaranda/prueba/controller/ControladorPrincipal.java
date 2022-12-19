@@ -17,7 +17,7 @@ public class ControladorPrincipal {
 	
 	@GetMapping("/")
 	public String principal() {
-		return "index";
+		return "redirect:/listStudent";
 	}
 	//PRIMERA FORMA DE PONER UN PARAMETRO QUE SEA DE TIPO NO REQUERIDO
 //	@GetMapping("/Welcome")

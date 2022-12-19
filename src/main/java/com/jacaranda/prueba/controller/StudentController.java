@@ -24,6 +24,12 @@ public class StudentController {
 		return "listStudent";
 				
 	}
+	@GetMapping("login")
+	public String login() {
+		
+		return "login";
+				
+	}
 	
 	@GetMapping("addStudent")
 	public String addStudent(Model model) {
