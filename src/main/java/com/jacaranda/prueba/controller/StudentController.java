@@ -3,6 +3,8 @@ package com.jacaranda.prueba.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,7 +46,10 @@ public class StudentController {
 		return "updateStudent";
 	}
 	@PostMapping("updateStudent/submit")
-	public String updateresult(@ModelAttribute("estudiante")Student u) {
+	public String updateresult(@Validated @ModelAttribute("estudiante")Student u,BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "updateStudent";
+		}
 		repositorio.updateStudent(u.getName(), u.getSurname(), u.getAge());
 		
 		
@@ -60,10 +65,15 @@ public class StudentController {
 	}
 	
 	@PostMapping("addStudent/submit")
-	public String result(@ModelAttribute("student")Student u) {
-		repositorio.add(u);
+	public String result(@Validated @ModelAttribute("student")Student u,BindingResult bindingresult) {
+		if(bindingresult.hasErrors()) {
+			return "addStudent";
+		}else {
+			repositorio.add(u);
+			return "redirect:/listStudent";
+			
+		}
 		
-		return "redirect:/listStudent";
 		
 	}
 

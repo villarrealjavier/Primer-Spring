@@ -2,9 +2,12 @@ package com.jacaranda.prueba.model;
 
 import java.util.Objects;
 
+import jakarta.validation.constraints.Min;
+
 public class Student {
 	private String name;
 	private String surname;
+	@Min(value=0, message="La edad debe ser mayor que cero")
 	private Integer age;
 	
 	
